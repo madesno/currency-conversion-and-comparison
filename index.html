@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>The Currency Exchange</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+   <!-- <link rel="icon" href="https://glitch.com/favicon.ico" /> -->
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <!-- header -->
+    <div id="currencyConv">
+      <div>
+     <h1 class="header">
+      Currency Converter
+    </h1>
+      </div>
+    <!-- Amount Input -->
+      <div id="entryButtons">
+      <div class="inputDiv" id="amount">
+       <label for="amountInput">Amount</label>
+      <input
+        type="number"
+        placeholder="amount"
+        id="amountInput"
+      />
+      <!-- Amount Input Button-->
+       <button class="btn btn-default" id="btn_amt" onclick="submitAmount()">
+        submit
+      </button>
+        <c1 type="number" id="amountOutput"></c1>
+      </div>
+    <!-- Base Currency Input -->
+      <div id="inputDivs" class="container">
+    <div class="inputDiv" id="from">
+       <label for="userinput">From</label>
+      <input
+        type="text"
+        list="cur_list"
+        placeholder="base currency"
+        id="userinput"
+      />
+      <!-- Base Currency Submit Button -->
+      <datalist id="cur_list">
+        <option value="AED" name="United Arab Emirates Dirham"/>
+        <option value="AFN" />
+        <option value="ALL" />
+        <option value="AMD" />
+        <option value="ANG" />
+        <option value="AOA" />
+        <option value="ARS" />
+        <option value="AUD" />
+        <option value="AZN" />
+        <option value="BAM" />
+        <option value="BBD" />
+        <option value="BDT" />
+        <option value="BGN" />
+        <option value="BHD" />
+        <option value="BIF" />
+        <option value="BMD" />
+        <option value="BND" />
+        <option value="BOB" />
+        <option value="BRL" />
+        <option value="BSD" />
+        <option value="BTN" />
+        <option value="BWP" />
+        <option value="BYN" />
+        <option value="BZD" />
+        <option value="CAD" />
+        <option value="CDF" />
+        <option value="CHF" />
+        <option value="CLP" />
+        <option value="CNY" />
+        <option value="COP" />
+        <option value="CRC" />
+        <option value="CUC" />
+        <option value="CUP" />
+        <option value="CVE" />
+        <option value="CZK" />
+        <option value="DJF" />
+        <option value="DKK" />
+        <option value="DOP" />
+        <option value="DZD" />
+        <option value="EGP" />
+        <option value="ERN" />
+        <option value="ETB" />
+        <option value="EUR" />
+        <option value="FJD" />
+        <option value="FKP" />
+        <option value="FOK" />
+        <option value="GBP" />
+        <option value="GEL" />
+        <option value="GGP" />
+        <option value="GHS" />
+        <option value="GIP" />
+        <option value="GMD" />
+        <option value="GNF" />
+        <option value="GTQ" />
+        <option value="GYD" />
+        <option value="HKD" />
+        <option value="HNL" />
+        <option value="HRK" />
+        <option value="HTG" />
+        <option value="HUF" />
+        <option value="IDR" />
+        <option value="ILS" />
+        <option value="IMP" />
+        <option value="INR" />
+        <option value="IQD" />
+        <option value="IRR" />
+        <option value="ISK" />
+        <option value="JMD" />
+        <option value="JOD" />
+        <option value="JPY" />
+        <option value="KES" />
+        <option value="KGS" />
+        <option value="KHR" />
+        <option value="KID" />
+        <option value="KMF" />
+        <option value="KRW" />
+        <option value="KWD" />
+        <option value="KYD" />
+        <option value="KZT" />
+        <option value="LAK" />
+        <option value="LBP" />
+        <option value="LKR" />
+        <option value="LRD" />
+        <option value="LSL" />
+        <option value="LYD" />
+        <option value="MAD" />
+        <option value="MDL" />
+        <option value="MGA" />
+        <option value="MKD" />
+        <option value="MMK" />
+        <option value="MNT" />
+        <option value="MOP" />
+        <option value="MRU" />
+        <option value="MUR" />
+        <option value="MVR" />
+        <option value="MWK" />
+        <option value="MXN" />
+        <option value="MYR" />
+        <option value="MZN" />
+        <option value="NAD" />
+        <option value="NGN" />
+        <option value="NIO" />
+        <option value="NOK" />
+        <option value="NPR" />
+        <option value="NZD" />
+        <option value="OMR" />
+        <option value="PAB" />
+        <option value="PEN" />
+        <option value="PGK" />
+        <option value="PHP" />
+        <option value="PKR" />
+        <option value="PLN" />
+        <option value="PYG" />
+        <option value="QAR" />
+        <option value="RON" />
+        <option value="RSD" />
+        <option value="RUB" />
+        <option value="RWF" />
+        <option value="SAR" />
+        <option value="SBD" />
+        <option value="SCR" />
+        <option value="SDG" />
+        <option value="SEK" />
+        <option value="SGD" />
+        <option value="SHP" />
+        <option value="SLL" />
+        <option value="SOS" />
+        <option value="SRD" />
+        <option value="SSP" />
+        <option value="STN" />
+        <option value="SYP" />
+        <option value="SZL" />
+        <option value="THB" />
+        <option value="TJS" />
+        <option value="TMT" />
+        <option value="TND" />
+        <option value="TOP" />
+        <option value="TRY" />
+        <option value="TTD" />
+        <option value="TVD" />
+        <option value="TWD" />
+        <option value="TZS" />
+        <option value="UAH" />
+        <option value="UGX" />
+        <option value="USD" />
+        <option value="UYU" />
+        <option value="UZS" />
+        <option value="VES" />
+        <option value="VND" />
+        <option value="VUV" />
+        <option value="WST" />
+        <option value="XAF" />
+        <option value="XCD" />
+        <option value="XDR" />
+        <option value="XOF" />
+        <option value="XPF" />
+        <option value="YER" />
+        <option value="ZAR" />
+        <option value="ZMW" />
+      </datalist>
+      <button class="btn btn-default" id="btn_run" onclick="submitCurrency()">
+        submit
+      </button>
+      <!-- Base Currency Output Text -->
+      <div class="container">
+      <c1 class="currencyName" type="text" id="output"></c1>
+    <c1 type="text" id="baseRate"></c1>
+    </div>
+     </div>
+    
+    <!-- New Currency Input -->
+    <div class="inputDiv" id="to">
+      <label for="userinputNew">To</label>
+      <input
+        type="text"
+        list="cur_list"
+        placeholder="new currency"
+        id="userinputNew"
+      />
+      <!-- New Currency Submit Button -->
+      <button class="btn btn-default" id="btn_run_new" onclick="submitNewCurrency()">
+        submit
+      </button>
+      <!-- New Currency Output Text -->
+      <div class="container">
+      <c1 class="currencyName" type="text" id="outputNew"></c1>
+    <c1 type="text" id="newRate"></c1>
+      </div>
+      </div>
+    </div>
+      </div>
+    <!-- d3 formatting -->
+       <!-- Header -->
+     <h1 class="header">
+      Comparisons
+    </h1>
+      <!-- Title and description for 5 random currencies -->
+      <div class="subHeader">
+    <h1>
+      Base currency against four random currencies
+    </h1>
+     <c1>Here's a look at a random sample of other currencies, presented in units of your base currency.</c1>
+   </div>
+      <div class="chartDescription">
+      <c1 id="textSubHeader">What's the difference between the charts? </c1>
+    <c1>The linear chart displays currencies on a consistent y-scale -- This is the type of chart you're used to. However, because currency rates can be so different from one another, a currency with a high rate can dwarf currencies with very low rates, so that they barely show up on the chart. A logarithmic y-scale increases exponentially, so that lower numbers have little extra room on the chart.</c1> 
+     <!-- 5 Currency Chart Reveal Buttons -->
+      <button class="btn btn-default btn col-sm-12"  onclick="showFiveLogChart()">logarithmic</button>
+    <div class="container">
+      <svg id="fiveLog" style="display:none;" width="960" height="500"></svg>
+    </div>
+    <button class="btn btn-default btn col-sm-12" onclick="showFiveLinChart()">linear</button>
+    <div class="container">
+      <svg id="five" style="display:none;" width="960" height="500"></svg>
+    </div>
+      </div>
+  <!-- Title and description for all currencies -->
+      <div class="subHeader">
+    <h1>
+      All Currencies
+    </h1>
+         </div>
+      <div class="chartDescription">
+   <c1>The first value on the left is the base currency you chose. Take a look at how it compares to other currencies from around the world!</c1>
+    <div class="btn-group-justified" role="group" aria-label="allCurButtons">
+  <!-- All Currency Chart Reveal Buttons -->
+    <button class="btn btn-default btn col-sm-12" onclick="showAllLogChart()">logarithmic</button>
+    </div>
+    <div class="container">
+      <svg id="allLog" style="display:none;" width="960" height="500"></svg>
+    </div>
+    <button class="btn btn-default btn col-sm-12" onclick="showAllLinChart()">linear</button>
+    <div class="container">
+      <svg id="all" style="display:none;" width="960" height="500"></svg>
+    </div>
+        </div>
+
+    <!-- imports -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="script1.js"></script>
+  </body>
+</html>
